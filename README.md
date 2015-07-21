@@ -1,10 +1,10 @@
 # Algorithms
 
-I am doing this for **learning purposes**.
+I am doing this for **learning purposes** and for using in my daily codes.
 
 Algorithms are from the following books:
-	* Introduction to algorithms, 3rd edition by Charles E. Leiserson
-	* The art of computer programming, by Donald Knuth (1-3)
+* Introduction to algorithms, 3rd edition by Charles E. Leiserson
+* The art of computer programming, by Donald Knuth (1-3)
 
 I am trying to do **all** the algorithms from both of the books, and slowly push it to this repository.
 All the algorithms will be written in **C** and hopefully, some will be translated to **C++** and **Python** and perhaps
