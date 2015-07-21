@@ -10,5 +10,6 @@ All the algorithms will be written in **C** and hopefully, in the near future, t
 If you find any errors, submit a new issue or a pull request.
 
 [Ben Mezger](http://benmezger.me)
+
 [Ephexeve](http://ephexeve.org)
 
