@@ -14,7 +14,8 @@ All the algorithms are being drawn in a paper (step by step and some with mathem
 Maybe I will also write a blog post for each algorithm, explaning why and how it works, if I do, I will update this.
 
 The are two main directories, one for *Introduction to algorithms* and another for *The art of computer programming*. Each directory,
-has sub-directory with the language. Keep in mind that **ALL** algorithms are written in C, and some, slowly, will be written in other languages.
+has sub-directory with the language and each language directory has a sub-directory with the exercices of each chapter.
+Keep in mind that **ALL** algorithms are written in C, and some, slowly, will be written in other languages.
 
 Each file, has a comment, with the page number of the book and the section, like ```Page 16, 2.1```.
 
