@@ -12,7 +12,7 @@ void selection_sort(int *A, size_t len){
     int tmp;
     
     for (i=0; i < (int) len; ++i){
-        index = A[i];
+        index = i;
         for (j=i; j < (int) len; ++j){
             if (A[j] < A[index]){
                 index = j;
