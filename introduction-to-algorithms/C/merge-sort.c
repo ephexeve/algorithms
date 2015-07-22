@@ -14,8 +14,8 @@ void merge(int *A, int p, int q, int r){
     int L[n_a + 1];
     int R[n_b + 1];
 
-    L[n_a] = 31287739;
-    R[n_b] = 31287739;
+    L[n_a] = 31287739; // sentinel
+    R[n_b] = 31287739; // sentinel
     
     int i, j, k;
 
@@ -26,8 +26,6 @@ void merge(int *A, int p, int q, int r){
         R[j] = A[q + j + 1];
     }
 
-    L[n_a + 1] = -1; // I am assuming all ints are from 0-inf, so I will keep -1 as my sentinel
-    R[n_b + 1] = -1; // same as ^
     i = 0;
     j = 0;
     
