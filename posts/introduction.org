@@ -1,0 +1,32 @@
+#+title: Introduction
+#+DATE: <2015-07-25 Sat>
+#+AUTHOR: Ben Mezger
+#+EMAIL: mezger.benjamin@gmail.com, ephexeve@gmail.com
+#+PUBLIC_GPG: http://bit.ly/1IHTXYD
+#+BLOGS: ephexeve.org, benmezger.me
+#+GITHUB: https://github.com/ephexeve/algorithms
+
+* Why?!
+If you are wondering why did I make this crazy decission of writting *all* the algorithms from *The art of computer programming* and all from *Introduction to Algorithms* is simply because I really 
+enjoy it. I like Algorithms, in fact, I like them so much that I decided to learn as much as I can. I live in an algorithmic world. I write code *everyday* there is no reason why I should not learn
+them *well*.
+
+* There are many good and easy going algorithm books out there, why not learn from those?
+One reason is because I love to challenge myself. I like to give myself a few headaches, and in the end, see good results.
+Another reason is simple, why not learn with the Masters? Say, you want to learn a martial arts, do you prefer learning from Youtube or reading a book? Or do you prefer to take courses with a black-belt
+, learn the correct technics (why you should do x instead of y) and how you should really do it? Exactly.
+Another obvious reason is because I have all of those books at home or at my local library. 
+
+* Probably you won't use most of those algorithms.
+I am very aware of that, but then again, I ask you, why not learn them? =]
+
+* Can I improve your algorithm?
+Please do.
+
+* What OS and editor are you using?
+For OS it depends, sometimes I am using Archlinux and sometimes OSX. It really depends on what I feel like doing and what OS I am currently running at the time of writting the algorithms
+For editor, I am using Emacs.
+
+* Why use org-mode to write the posts?
+Simply because I can easily write my post using org-mode and convert them to LaTeX, .pdf, .markdown, whatever. Come on, I am already writting a lot of algorithms in my day, don't make me 
+write raw LaTeX or something :p.

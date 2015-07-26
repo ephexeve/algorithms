@@ -1,0 +1,164 @@
+% Created 2015-07-26 Sun 05:26
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{minted}
+\author{Ben Mezger}
+\date{\textit{<2015-07-25 Sat>}}
+\title{Insertion sort}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec-1}
+We need to sort numbers quite a lot when programming, for example, suppose you
+wrote a computer card game, each card will be shuffled at the beginning, and
+each user starts with 6 cards, but they need to be sorted, like the following.
+
+\begin{table}[htb]
+\caption{\label{fig:-ss-cards}Shuffled card vs sorted cards.}
+\centering
+\begin{tabular}{lrrrrrr}
+Shuffled & 6 & 3 & 1 & 4 & 2 & 5\\
+Sorted & 1 & 2 & 3 & 4 & 5 & 6\\
+\end{tabular}
+\end{table}
+
+\section{Solution}
+\label{sec-2}
+
+One solution for this problem, is to use an algorithm called \emph{insertion
+sort}. Insertion sort is fairly simple, but it's a commonly used algorithm. Insertion
+sort works like we human sort cards. say we have 6 cards lying in the table,
+the cards are from 1-6, but they are not sorted. the cards on the table looks
+like the shuffled line from \texttt{\emph{Table 1}}. Our algorithm, needs to take care of two
+elements, the first element (\emph{i}) and the second element, (\emph{j}). While \emph{j}
+points to the second element, \emph{i} points to \emph{j - 1}. We do so, because later, we
+can compare \emph{j} with \emph{i} and check if \emph{i} $\ge$ \emph{j}, if so, we swap the element
+\emph{i} with the \emph{j} each time, until \emph{i} $\le$ \emph{j}.
+
+\begin{center}
+\begin{tabular}{lrrrrrr}
+\textbf{A} & 6 & 3 & 1 & 4 & 2 & 5\\
+\textbf{current} & \emph{i} & \emph{j} &  &  &  & \\
+\end{tabular}
+\end{center}
+\newline
+In C, this algorithm can be represented as the following; it receiving an array \emph{A}
+and an total number of elements, so we can keep track where the list ends. 
+
+\begin{listing}[H]
+\begin{minted}[linenos,firstnumber=1]{c}
+void insertion_sort(int *A, size_t len){
+    int j, i, key;
+
+    for (j=1; j < (int) len; j++){
+        key = A[j];
+        // Insert A[j] into the sorted sequence A[1.. j-1]
+        i = j - 1;
+        while (i >= 0 && A[i] > key){
+            A[i + 1] = A[i];
+            i = i - 1;
+        }
+        A[i + 1] = key;
+    }
+\end{minted}
+\caption{\label{c-ss}Insertion sort algorithm in C}
+\end{listing}
+
+Line 4, we start \emph{j} at the index 1 of array A up to or equal to len which is
+the total number of elements we have in array A. If \emph{len} is 0, means our array
+is emtpy, so it will never enter line 4, and empty array is a sorted array. The
+same works if \emph{len} is one, meaning one element in our array. Line 5, we assign \emph{key} to the
+current value of A[j], we do this because otherwise we would lose the value of
+A[j] at in line 9. Line 7 is simple, we get the index before \emph{j}. From line 8-10
+is where the sorting begins. We check if \emph{i} is $\ge$ 0 and if A[i] is > key. If
+A[i] > key is true, it means it's not sorted. So we will assign A[i + 1] = A[i]
+until i > 0, shuffling the elements to the left.
+
+\begin{table}[htb]
+\caption{Insertion sort operation}
+\centering
+\begin{tabular}{lrrrrrrl}
+\textbf{A$_{\text{1}}$} & 6 & 3 & 1 & 4 & 2 & 5 & current\\
+\textbf{current$_{\text{1}}$} & \emph{i} & \emph{j} &  &  &  &  & \\
+\textbf{A$_{\text{1}}$} & 3 & 6 & 1 & 4 & 2 & 5 & 1 shift\\
+\textbf{current$_{\text{2}}$} &  & \emph{i} & \emph{j} &  &  &  & \\
+\textbf{A$_{\text{2}}$} & 1 & 3 & 6 & 4 & 2 & 5 & 2 shifts\\
+\textbf{current$_{\text{3}}$} &  &  & \emph{i} & \emph{j} &  &  & \\
+\textbf{A$_{\text{3}}$} & 1 & 3 & 4 & 6 & 2 & 5 & 3 shifts\\
+\textbf{current$_{\text{4}}$} &  &  &  & \emph{i} & \emph{j} &  & \\
+\textbf{A$_{\text{4}}$} & 1 & 2 & 3 & 4 & 6 & 5 & 4 shifts\\
+\textbf{current$_{\text{5}}$} &  &  &  &  & \emph{i} & \emph{j} & \\
+\textbf{A\{5\}} & 1 & 2 & 3 & 4 & 5 & 6 & final\\
+\end{tabular}
+\end{table}
+
+\subsection{Analysis}
+\label{sec-2-1}
+In the chapter, I am assuming you are already familiar with Algorithm analysis.
+
+Analyzing \emph{insertion sort} algorithm can give us a good idea of when we should
+use this algorithm and when we should not. Analyzing can predict the resources
+the algorithm requires.
+
+The time \emph{insertion sort} requires depends on its input; if the input is 10
+elements, it would take shorter than if the input was 6*10$^{\text{3}}$. On the other hand,
+insertion sort also requires a different amount of time for two input sequences of the same
+size if one of the input sequences is halfway sorted.
+
+\subsubsection{Best case}
+\label{sec-2-1-1}
+The best case input is an array that is already sorted. If the array is already
+sorted, we have a linear running time: $\mathcal{O}(n)$.
+
+
+\subsubsection{Worst case}
+\label{sec-2-1-2}
+The simplest worst case for \emph{insertion sort} algorithm is if the array is in
+reverse order. If the array is in reversed order, the inner loop (line 8-10)
+will scan and shift the \textbf{entire} "sorted" array before inserting the next
+element: $\mathcal{O}(n^2)$.
+
+\begin{center}
+\begin{tabular}{lrrrrrrl}
+\textbf{A$_{\text{1}}$} & 6 & 5 & 4 & 3 & 2 & 1 & current\\
+\textbf{current$_{\text{1}}$} & \emph{i} & \emph{j} &  &  &  &  & \\
+\textbf{A$_{\text{2}}$} & 5 & 6 & 4 & 3 & 2 & 1 & 1 shift\\
+\textbf{current$_{\text{2}}$} &  & \emph{i} & \emph{j} &  &  &  & \\
+\textbf{A$_{\text{3}}$} & 4 & 5 & 6 & 3 & 2 & 1 & 2 shifts\\
+\textbf{current$_{\text{3}}$} &  &  & \emph{i} & \emph{j} &  &  & \\
+\textbf{A$_{\text{4}}$} & 3 & 4 & 5 & 6 &  &  & 3 shifts\\
+\textbf{current$_{\text{4}}$} &  &  &  & \emph{i} & \emph{j} &  & \\
+\textbf{A$_{\text{5}}$} & 2 & 3 & 4 & 5 & 6 & 1 & 4 shifts\\
+\textbf{current$_{\text{5}}$} &  &  &  &  & \emph{i} & \emph{j} & \\
+\textbf{A$_{\text{6}}$} & 1 & 2 & 3 & 4 & 5 & 6 & 5 shifts\\
+\textbf{A$_{\text{7}}$} & 1 & 2 & 3 & 4 & 5 & 6 & final\\
+\end{tabular}
+\end{center}
+
+\subsubsection{Average case}
+\label{sec-2-1-3}
+The average sort is \textbf{quadratic}, which means that insertion sort is impractical
+for sorting a large array: $\mathcal{O}(n^2)$ with a space complexity of $\mathcal{O}(1)$.
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

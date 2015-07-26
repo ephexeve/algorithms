@@ -39,3 +39,24 @@
 \#*
 .#*
 \#*\#
+
+# posts
+# posts/*
+
+# latex
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.brf
+*.run.xml
+_minted*
+*.pyg
