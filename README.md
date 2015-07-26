@@ -11,10 +11,10 @@ All the algorithms will be written in **C** and hopefully, some will be translat
 in the end of my readings I will have all the translations done.
 
 All the algorithms are being drawn in a paper (step by step and some with mathematical equations) and soon will be pushed to this repository.
-Maybe I will also write a blog post for each algorithm, explaning why and how it works, if I do, I will update this.
+Maybe I will also write a blog post for each algorithm, explaining why and how it works, if I do, I will update this.
 
 The are two main directories, one for *Introduction to algorithms* and another for *The art of computer programming*. Each directory,
-has sub-directory with the language and each language directory has a sub-directory with the exercices of each chapter.
+has sub-directory with the language and each language directory has a sub-directory with the exercises of each chapter.
 Keep in mind that **ALL** algorithms are written in C, and some, slowly, will be written in other languages.
 
 Each file, has a comment, with the page number of the book and the section, like ```Page 16, 2.1```.
